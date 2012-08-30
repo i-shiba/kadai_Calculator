@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -167,6 +168,24 @@ public class CalculatorActivity extends Activity {
 //    		str = str + dbk[i].toString() + "¥n" + ebk[i].toString();
     	}
     	et.setText(str);
+    }
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+     	EditText et = (EditText) this.findViewById(R.id.editText1);
+		switch(item.getItemId()){
+		case R.id.menu_return:
+			reCalc();
+			break;
+		case R.id.menu_cancel:
+			break;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+    public void reCalc(){
+        setContentView(R.layout.activity_calculator);
+     	TextView tv = (TextView) this.findViewById(R.id.displayPanel);
+    	tv.setText("55555");
     }
 
 }
