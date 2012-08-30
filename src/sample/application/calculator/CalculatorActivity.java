@@ -9,7 +9,6 @@ import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,7 +17,6 @@ import android.text.Selection;
 
 public class CalculatorActivity extends Activity {
 	
-	Menu menu        = null;
 	Integer count    = 0;
 	Double d1        = 0.0;
 	Double d2        = 0.0;
@@ -38,7 +36,6 @@ public class CalculatorActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-    	this.menu = menu;
         getMenuInflater().inflate(R.menu.activity_calculator, menu);
 		MenuInflater mi = this.getMenuInflater();
 		mi.inflate(R.menu.menu,menu);
@@ -109,6 +106,26 @@ public class CalculatorActivity extends Activity {
      	TextView tv = (TextView) this.findViewById(R.id.displayPanel);
 		d2 = Double.parseDouble(tv.getText().toString());
      	d1 = calculato(enzan,d1,d2);
+/*    	if(enzan.equals(" ")){
+    		d1 = Double.parseDouble(tv.getText().toString());
+    	}
+    	if(enzan.equals("+")){
+    		d2 = Double.parseDouble(tv.getText().toString());
+    		d1 = d1 + d2;
+    	}
+    	if(enzan.equals("-")){
+    		d2 = Double.parseDouble(tv.getText().toString());
+    		d1 = d1 - d2;
+    	}
+    	if(enzan.equals("*")){
+    		d2 = Double.parseDouble(tv.getText().toString());
+    		d1 = d1 * d2;
+    	}
+    	if(enzan.equals("/")){
+    		d2 = Double.parseDouble(tv.getText().toString());
+    		d1 = d1 / d2;
+    	}
+*/
     	enzan = "=";
     	tv.setText(d1.toString());
     	dbk[count] = d2;
@@ -151,24 +168,5 @@ public class CalculatorActivity extends Activity {
     	}
     	et.setText(str);
     }
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-     	EditText et = (EditText) this.findViewById(R.id.editText1);
-     	switch(item.getItemId()){
-     	case R.id.menu_return:
-     		reCalculato();
-     		break;
-     	case R.id.menu_cancel:
-     		break;
-     	}
-//        return true;
-		return super.onOptionsItemSelected(item);
-	}
-    public void reCalculato(){
-        setContentView(R.layout.activity_calculator);
-     	TextView tv = (TextView) this.findViewById(R.id.displayPanel);
-    	tv.setText("55555");
-    }
-
 
 }

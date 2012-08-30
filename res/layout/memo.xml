@@ -18,11 +18,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="0.25"
-        android:ems="20"
+        android:ems="10"
         android:gravity="top"
-        android:inputType="textMultiLine" 
-        android:textSize="48sp">
-        
+        android:inputType="textMultiLine" >
+
         <requestFocus />
     </EditText>
 
